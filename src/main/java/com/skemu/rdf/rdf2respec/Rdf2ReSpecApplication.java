@@ -1,15 +1,10 @@
 package com.skemu.rdf.rdf2respec;
 
-import com.skemu.rdf.rdf2respec.respec.Paragraph;
-import com.skemu.rdf.rdf2respec.respecmapping.HierarchicalRelation;
-import com.skemu.rdf.rdf2respec.respecmapping.ReSpecMapping;
 import com.skemu.rdf.rdf2respec.sources.Source;
 import com.skemu.rdf.rdf2respec.sources.Sources;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.List;
 import lombok.extern.slf4j.Slf4j;
-import org.eclipse.rdf4j.model.vocabulary.SKOS;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -33,7 +28,6 @@ public class Rdf2ReSpecApplication implements CommandLineRunner {
     @Override
     public void run(String... args) {
         for (Source source: sources.getSources()) {
-//            System.out.println(Rdf2ReSpecProcessor.of(source).serialize());
             Rdf2ReSpecProcessor.of(source).serializeToFileSystem();
         }
 
